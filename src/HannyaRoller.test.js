@@ -3,7 +3,7 @@ import text from './hannya-text';
 
 describe('HannyaRoller', () => {
   it('is OK', () => {
-    expect(1 + 2).toBe(5);
+    expect(1 + 2).toBe(3);
   });
 
   // /** @type HannyaRoller */
