@@ -2,3 +2,5 @@
 
 - Event: [自動で徳を積むための試験とCIハンズオン | Frog](https://frogagent.com/event/testtools-ci-workshop/)
 - Original: https://github.com/ginpei/hannya-roll
+
+https://travis-ci.org/HelloTakako/ci-test.svg?branch=master
