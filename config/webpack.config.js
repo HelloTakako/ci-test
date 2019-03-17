@@ -5,37 +5,34 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
-const publicPath = isProduction ? '/hannya-roll' : '';
+const publicPath = isProduction ? '/ci-test' : '';
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    publicPath,
+    publicPath
   },
   devtool: isProduction ? 'source-map' : 'cheap-module-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.join(__dirname, 'dist')
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
-      },
-    ],
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'public',
-        ignore: ['index.html'],
-      },
+        ignore: ['index.html']
+      }
     ]),
     new HtmlWebpackPlugin({
       minify: isProduction && {
@@ -48,16 +45,16 @@ module.exports = {
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true,
+        minifyURLs: true
       },
-      template: './public/index.html',
+      template: './public/index.html'
     }),
     new InterpolateHtmlPlugin({
       NODE_ENV: process.env.NODE_ENV || 'development',
-      PUBLIC_URL: publicPath,
-    }),
+      PUBLIC_URL: publicPath
+    })
   ],
   optimization: {
-    minimize: isProduction,
-  },
+    minimize: isProduction
+  }
 };
